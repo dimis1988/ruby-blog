@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_21_161807) do
+ActiveRecord::Schema.define(version: 2023_12_26_101718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 2023_12_21_161807) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "post_categories", force: :cascade do |t|
+    t.string "name"
+    t.boolean "active", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.string "slug"
+    t.index ["name"], name: "index_post_categories_on_name", unique: true
+    t.index ["slug"], name: "index_post_categories_on_slug", unique: true
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -51,6 +62,7 @@ ActiveRecord::Schema.define(version: 2023_12_21_161807) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "post_category_id"
     t.index ["title"], name: "index_posts_on_title", unique: true
   end
 

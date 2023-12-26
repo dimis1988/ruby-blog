@@ -1,0 +1,41 @@
+  <div class="custom-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <h1 class="hero-heading">Categories</h1>
+          <div  class="line js-line mx-auto mb-3 my-3"></div>
+          <p class="sub-text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <section class="site-section pt-0">
+      <div class="container">
+
+        <div class="filters-content mb-5" data-aos="fade-up" data-aos-delay="200">
+          <div class="row grid">
+
+          <% @post_categories.each do |post_category|%>
+            <div class="isotope-card col-sm-4 all mockup">
+              <%= link_to post_category do %>
+                <% if post_category.image.attached? %>
+                    <%= image_tag(post_category.image, alt:"Image", class:"img-fluid") %>
+                  <% end %>
+                <div class="contents">
+                  <h3><%= post_category.name %></h3>
+                  <div class="cat">Category</div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- .untrtee_co-section -->
+
+

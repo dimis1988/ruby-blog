@@ -1,8 +1,10 @@
 class Post < ApplicationRecord
-    before_create :slugify
+    belongs_to :post_category
+    before_save :slugify
     before_validation :title_and_body_capitalize
     has_one_attached :image
     validates :title, :body, :image, presence: true
+    
 
     def slugify
         self.slug = title.parameterize

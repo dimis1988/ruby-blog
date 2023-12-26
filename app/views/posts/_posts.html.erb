@@ -1,0 +1,17 @@
+      <% @posts.each do |post| %> 
+        <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
+          <div class="blog_entry">
+            <a href="single.html">
+            <% if post.image.attached? %>
+            <%= image_tag(post.image, alt:"Free Website Template by Untree.co",class:"img-fluid") %>
+            <% end %>
+            </a>
+            <div class="p-4 bg-white">
+              <h3><a href="single.html"><%= post.title %></a></h3>
+              <span class="date"><%= post.created_at.strftime("%B %e, %Y") %></span>
+              <p><%= post.body %></p>
+              <p class="more"><a><%= link_to 'Read more...', post %></a></p>
+            </div>
+          </div>
+        </div>
+       <% end %>

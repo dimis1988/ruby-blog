@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.with_attached_image.all
   end
 
   def show
@@ -42,6 +42,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :actice, :image, :slug)
+    params.require(:post).permit(:title, :body, :active, :image, :slug, :post_category_id)
   end
 end

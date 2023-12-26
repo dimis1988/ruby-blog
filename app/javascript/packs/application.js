@@ -4,6 +4,8 @@
 // that code so it'll be compiled.
 
 require('jquery')
+global.$ = global.jQuery = jQuery;
+window.$ = window.jQuery = jQuery;
 
 import Rails from "@rails/ujs"
 // import Turbolinks from "turbolinks"
@@ -16,7 +18,6 @@ import 'aos/dist/aos.js'
 import 'jquery-migrate/dist/jquery-migrate.min'
 import 'popper.js/dist/popper.js'
 import 'bootstrap/dist/js/bootstrap.js'
-import 'owl.carousel/dist/owl.carousel.min.js'
 import 'imagesloaded/imagesloaded.pkgd.js'
 import 'isotope-layout/dist/isotope.pkgd.min.js'
 import 'jquery.animate-number/jquery.animateNumber.min.js'
@@ -31,14 +32,17 @@ import 'TweenMax.min'
 require('scrollmagic/scrollmagic/uncompressed/ScrollMagic.js')
 import 'scrollmagic-plugins/plugins/animation.gsap.js'
 import 'scrollmagic-plugins/plugins/debug.addIndicator.js'
+import 'owl.carousel.min.js'
+
+
+
 import 'custom'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-global.$ = global.jQuery = jQuery;
-window.$ = window.jQuery = jQuery;
+
 
 // Test jQuery
 // $(document).ready(function() {

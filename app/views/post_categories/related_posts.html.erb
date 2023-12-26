@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6">
-          <h1 class="hero-heading">Our Blog</h1>
+          <h1 class="hero-heading"><%= @post_category.name %> Posts</h1>
           <div  class="line js-line mx-auto mb-3 my-3"></div>
           <p class="sub-text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
         </div>
@@ -16,7 +16,23 @@
     <div class="container">
       <div class="row mb-5">
 
-        <%= render partial: 'posts/posts' %>
+        <% @posts.each do |post| %> 
+        <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
+          <div class="blog_entry">
+            <a href="single.html">
+            <% if post.image.attached? %>
+            <%= image_tag(post.image, alt:"Free Website Template by Untree.co",class:"img-fluid") %>
+            <% end %>
+            </a>
+            <div class="p-4 bg-white">
+              <h3><a href="single.html"><%= post.title %></a></h3>
+              <span class="date"><%= post.created_at.strftime("%B %e, %Y") %></span>
+              <p><%= post.body %></p>
+              <p class="more"><a><%= link_to 'Read more...', post %></a></p>
+            </div>
+          </div>
+        </div>
+       <% end %>
 
       </div>
 
@@ -35,4 +51,6 @@
   </div>
 
   
+  
+
   

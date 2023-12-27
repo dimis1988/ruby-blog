@@ -4,7 +4,7 @@
         <div class="col-lg-8">
           <h1 class="hero-heading"><%= @post.title %></h1>
           <div  class="line js-line mx-auto mb-3 my-3"></div>
-          <p class="sub-text">By Joefrey Mahusay <span class="mx-3">&bullet;</span> on <%= @post.created_at.strftime("%B %e, %Y") %> </p>
+          <p class="sub-text">By <%= @post.user.full_name %> <span class="mx-3">&bullet;</span> on <%= @post.created_at.strftime("%B %e, %Y") %> </p>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
 
 
           <div class="pt-5 categories_tags ">
-            <p>Categories:  <a><%= @post.post_category.name %></a>,   Tags: <a href="#">#html</a>, <a href="#">#trends</a></p>
+            <p>Categories:  <a><%= @post.post_category.name %></a>,   Tags: <a href="#">#html</a>, <a href="#">#trends</a></p> More from this aurthor: <a><%= link_to @post.user.full_name, user_path(@post.user) %></a></p>
           </div>
 
           <div class="post-single-navigation d-flex align-items-stretch">

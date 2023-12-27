@@ -1,0 +1,93 @@
+<div class="custom-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <h1 class="hero-heading">Edit <%= resource_name.to_s.humanize %></h1>
+          <div  class="line js-line mx-auto mb-3 my-3"></div>
+          <p class="sub-text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-grey">
+    <div class="container p-5">
+
+      <div class="block">
+        <div class="row justify-content-center">
+
+
+          <div class="col-md-12 col-lg-12 pb-4" data-aos="fade-up" data-aos-delay="200">
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <%= f.label :first_name, class:"text-black" %><br />
+                    <%= f.text_field :first_name, class:"form-control", id:"fname" %>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <%= f.label :last_name, class:"text-black" %><br />
+                    <%= f.text_field :last_name, class:"form-control", id:"lname" %>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= f.label :email, class:"text-black", for:"email" %><br />
+                <%= f.email_field :email, class:"form-control" %>
+              </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <%= f.label :password, class:"text-black" %><i>(leave blank if you don't want to change it)</i><br />
+                    <%= f.password_field :password, class:"form-control" %>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <%= f.label :password_confirmation,class:"text-black" %><br />
+                    <%= f.password_field :password_confirmation, class:"form-control"%>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <%= f.label :current_password,class:"text-black" %> <i>(we need your current password to confirm your changes)</i><br />
+                     <%= f.password_field :current_password, class:"form-control" %>
+                  </div>
+                </div>
+                <div class="col-6">
+           
+    <div class="form-group">
+            <%= f.label :avatar , class:"text-black", for:"message" %>
+            <%= f.file_field :avatar, class:"form-control" %>
+    </div>
+                </div>
+
+              </div>
+
+               <%= f.submit "Sign up", class:"btn btn-primary" %>
+            <% end %>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<h3>Cancel my account</h3>
+
+<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+
+<%= link_to "Back", :back %>

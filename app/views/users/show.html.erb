@@ -1,0 +1,60 @@
+  <div class="custom-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <h1 class="hero-heading">Profile</h1>
+          <div  class="line js-line mx-auto mb-3 my-3"></div>
+          <p class="sub-text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section pt-0">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-lg-7 mx-auto text-center">
+          <h2>Aurthor</h2>
+          <div class="line my-3 mx-auto"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+          <div class="section">
+
+            <div class="testimonial mx-auto">
+              <figure class="img-wrap">
+                <% if current_user.avatar.attached? %>
+                  <%= image_tag(current_user.avatar, alt:"Image", class:"img-fluid") %>
+                <% end %>
+              </figure>
+              <h3 class="name"><%= current_user.full_name %></h3>
+              <blockquote>
+                <p>&ldquo;There live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+              </blockquote>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+   <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-7">
+          <h2 class="mb-4"><%= @user.full_name %> Posts</h2>
+          <div class="line my-3"></div>
+        </div>
+      </div>
+      <div class="row">
+
+          <%= render partial: 'users/user_posts' %>
+
+      </div>
+    </div>
+  </div>

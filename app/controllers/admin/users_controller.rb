@@ -1,6 +1,5 @@
-class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
-
+class Admin::UsersController < Admin::BaseController
+  
   def show
     @user = User.find(params[:id])
   end

@@ -1,0 +1,29 @@
+  <nav class="site-nav">
+    <div class="container">
+      <div class="site-navigation">
+        <a><%= link_to 'Ruby.', admin_root_path, class:"logo float-left m-0" %>
+
+        <ul class="js-clone-nav d-none d-lg-inline-noone text-left site-menu">
+          <li><a><%= link_to 'Home', admin_root_path %></a></li>
+          <li class="has-children">
+            <%= link_to 'Blog', admin_posts_path %>
+            <ul class="dropdown">
+              <li><%= link_to 'New Post', new_admin_post_path %></li>
+              <li><%= link_to 'Categories', admin_post_categories_path %></li>
+              <li><%= link_to 'New Post Category', new_admin_post_category_path %></li>
+            </ul>
+          </li>
+          
+             <li><%= link_to 'Profile', admin_user_path(current_user) %></li>
+             <li><%= link_to 'Update Profile', edit_admin_user_path(current_user) %></li>
+            <li><%= link_to 'Log Out', destroy_user_session_path,
+            method: :delete, data: {confirm: 'Are you sure?'} %></li>
+        </ul>
+
+        <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-block" data-toggle="collapse" data-target="#main-navbar">
+          <span></span>
+        </a>
+
+      </div>
+    </div>
+  </nav>

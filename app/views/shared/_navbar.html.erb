@@ -15,6 +15,11 @@
     <div class="site-mobile-menu-body"></div>
   </div>
 
+<% if user_signed_in? && current_user.admin? %>
+
+   <%= render 'shared/admin_navbar' %>
+
+<% else %>
 
   <nav class="site-nav">
     <div class="container">
@@ -46,11 +51,9 @@
           <li><%= link_to 'Blog', posts_path %></li>
           <li><%= link_to 'Categories', post_categories_path %></li>
           <% if user_signed_in? %>
-             <li><%= link_to 'Profile', current_user %></li>
-             <li><%= link_to 'Update Profile', edit_user_registration_path %></li>
-            <li><%= link_to 'New Post', new_post_path %></li>
-            <li><%= link_to 'New Post Category', new_post_category_path %></li>
-            <li><%= link_to 'Log Out', destroy_user_session_path,
+             <li><%= link_to 'Profile', user_path(current_user) %></li>
+             <li><%= link_to 'Update Profile', edit_user_path(current_user) %></li>
+             <li><%= link_to 'Log Out', destroy_user_session_path,
             method: :delete, data: {confirm: 'Are you sure?'} %></li>
           <% else %>
             <li><%= link_to 'Log In', new_user_session_path %></li>
@@ -65,3 +68,5 @@
       </div>
     </div>
   </nav>
+
+<% end %>

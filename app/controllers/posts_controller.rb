@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
+  
   def index
     @posts = Post.with_attached_image.all
   end
@@ -6,6 +8,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(slug: params[:slug])
   end
+  
 
   def new
     @post = current_user.posts.build
@@ -40,6 +43,12 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def require_admin
+    unless current_user.admin?
+      redirect_to root_path
+    end
+  end
 
   def post_params
     params.require(:post).permit(:user_id, :title, :body, :active, :image, :slug, :post_category_id)

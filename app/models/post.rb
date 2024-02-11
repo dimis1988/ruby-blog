@@ -5,7 +5,7 @@ class Post < ApplicationRecord
     before_validation :title_and_body_capitalize
     has_one_attached :image
     validates :title, :body, :image, presence: true
-    
+    has_many :comments
 
     def slugify
         self.slug = title.parameterize

@@ -1,13 +1,9 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-  end
-
-  def show
-  end
-
   def new
+    @post = Post.find_by(slug: params[:post_slug])
+    @comment = @post.comments.new(parent_id: params[:parent_id])
   end
 
   def create 
@@ -19,6 +15,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :user_id)
+    params.require(:comment).permit(:body, :user_id, :parent_id)
   end
 end

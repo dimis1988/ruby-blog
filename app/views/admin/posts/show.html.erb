@@ -42,24 +42,54 @@
             </a>
           </div>
 
-<div class="pt-5">
-            <h3 class="mb-5">6 Comments</h3>
+
+
+
+          <div class="pt-5">
+            <h3 class="mb-5"><%= @post.comments.size %> Comments</h3>
+
             <ul class="comment-list">
-            <% @post.comments.each do |comment| %>
+              <% @post.comments.each do |comment| %>
+              <% unless comment.parent_id.present? %>
               <li class="comment">
-              
                 <div class="vcard bio">
-                  <img src="images/person_6-min.jpg" alt="Image placeholder">
+                  <img src="images/person_5-min.jpg" alt="Image placeholder">
                 </div>
                 <div class="comment-body">
                   <h3><%= comment.user.full_name %></h3>
                   <div class="meta"><%=  comment.created_at.strftime("%B %e, %Y") %></div>
                   <p><%= comment.body %></p>
-                  <p><a href="#" class="reply">Reply</a></p>
+                  <p><%= link_to 'Replay', new_post_comment_path(@post, parent_id: comment.id), remote: true, class:"reply"  %></p>
                 </div>
+
+
+              <% if comment.replies.any? %>
+              <ul class="children">
+                <% comment.replies.each do |reply| %>
+                  <li class="comment">
+                    <div class="vcard bio">
+                      <img src="images/person_4-min.jpg" alt="Image placeholder">
+                    </div>
+                    <div class="comment-body">
+                      <h3><%= reply.user.full_name %></h3>
+                      <div class="meta"><%= reply.created_at.strftime("%B %e, %Y") %></div>
+                      <p><%= reply.body %></p>
+                      <p><%= link_to 'Replay', new_post_comment_path(@post, parent_id: comment.id), remote: true, class:"reply"  %></p>
+                    </div>
+                  </li>
+                  <% end %>
+                </ul>
+                <% end %>
+                
+             <div id="reply-form-<%= comment.id %>"></div>
+
+
               </li>
-            <% end %>  
+              <% end %>
+            <% end %>
             </ul>
+            <!-- END comment-list -->
+          </div>
 
             <!-- END comment-list -->
           

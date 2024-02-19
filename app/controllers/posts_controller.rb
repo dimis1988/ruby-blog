@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
   
   def index
-    @posts = Post.with_attached_image.all
+    @posts = Post.with_attached_image.all.paginate(page: params[:page], per_page: 6)
   end
 
   def show

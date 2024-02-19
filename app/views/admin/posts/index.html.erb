@@ -40,13 +40,12 @@
 
       <div class="row">
         <div class="col-lg-12 text-center">
-          <ul class="list-unstyled custom-pagination">
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-          </ul>
+          <div class="apple_pagination">
+            <div class="page_info">
+             <%= page_entries_info @posts %>
+            </div>
+            <%= will_paginate @posts, :container => false %>
+          </div>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ class Admin::CommentsController < Admin::BaseController
     def create 
       @post = Post.find_by(slug: params[:post_slug])
       @comment = @post.comments.create(comment_params)
-      redirect_to admin_post_path(@post)
+      redirect_to admin_post_path(@post), notice: 'Comment successfully created...'
     end
   
     private

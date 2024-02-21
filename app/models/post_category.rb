@@ -1,6 +1,7 @@
 class PostCategory < ApplicationRecord
     has_many :posts, dependent: :destroy
     before_validation :capitalize_the_name
+    validates :name, :image, presence: true
     has_one_attached :image
     before_save :slugify
 

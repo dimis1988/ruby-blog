@@ -1,4 +1,14 @@
 <%= form_with model: [:admin, @post_category] do |f| %>
+<% if post_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post_category.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% post_category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
     <div class="form-group">
             <%= f.label :name , class:"text-black", for:"name" %>
             <%= f.text_field :name, class:"form-control", id:"fname"%>

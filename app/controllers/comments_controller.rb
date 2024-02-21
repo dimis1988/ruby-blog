@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create 
     @post = Post.find_by(slug: params[:post_slug])
     @comment = @post.comments.create(comment_params)
-    redirect_to post_path(@post)
+    redirect_to post_path(@post), notice: 'Comment successfully created...'
   end
 
   private

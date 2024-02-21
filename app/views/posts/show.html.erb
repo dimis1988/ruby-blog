@@ -80,8 +80,7 @@
                 </ul>
                 <% end %>
                 
-             <div id="reply-form-<%= comment.id %>"></div>
-
+                     <div id="reply-form-<%= comment.id %>"></div>
 
               </li>
               <% end %>
@@ -92,7 +91,7 @@
 
 
             <!-- END comment-list -->
-          
+          <% if user_signed_in? %>
             <%= form_with model: [@post, @post.comments.build] do |f| %>
               <div class="comment-form-wrap pt-5">
               <h3 class="mb-5">Leave a comment</h3>
@@ -108,6 +107,21 @@
                   <%= f.submit 'Post Comment', class:"btn btn-primary btn-md"  %>
                 </div>
             <% end %>
+          <% else %>
+            <div class="comment-form-wrap pt-5">
+              <h3 class="mb-5">Leave a comment</h3>
+              <form>
+                <div class="form-group">
+                  <h4>You have to <a href="<%= new_user_session_path %>">Log in</a> to post a comment.</h4>
+                  <textarea name="message" id="message" cols="30" rows="5" class="form-control" disabled></textarea>
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Post Comment" class="btn btn-primary btn-md" disabled>
+                </div>
+
+              </form>
+            </div>
+          <% end %>
 
           </div>
 

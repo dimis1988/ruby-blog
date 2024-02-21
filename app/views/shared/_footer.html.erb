@@ -4,7 +4,10 @@
         <div class="col-lg-4">
           <div class="widget">
             <h3>About</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live.</p>
+            <p>Welcome visitor, where we're passionate about sharing knowledge and expertise 
+            in the world of Rails development. Our blog isn't just another online platform; 
+            it's a labor of love crafted with the Rails framework and dedicated 
+            to educational pursuits.</p>
           </div>
           <div class="widget">
             <h3>Connect with us</h3>
@@ -27,27 +30,24 @@
             <div class="col-6 col-sm-6 col-md-4">
               <div class="widget">
                 <ul class="links list-unstyled">
-                  <li><a href="#">Home</a></li>
+                  <li><a><%= link_to 'Home', root_path %></a></li>
                   <li><a href="#">Services</a></li>
-                  <li><a href="#">Work</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-6 col-sm-6 col-md-4">
               <div class="widget">
                 <ul class="links list-unstyled">
-                  <li><a href="#">Press</a></li>
+                  <li><a ><%= link_to 'Blog', posts_path %></a></li>
                   <li><a href="#">Blog</a></li>
-                  <li><a href="#">Contact</a></li>
                 </ul>
               </div>
             </div>
             <div class="col-6 col-sm-6 col-md-4">
               <div class="widget">
                 <ul class="links list-unstyled">
-                  <li><a href="#">Privacy</a></li>
+                  <li><a><%= link_to 'Categories', post_categories_path %></a></li>
                   <li><a href="#">FAQ</a></li>
-                  <li><a href="#">Careers</a></li>
                 </ul>
               </div>
             </div>
@@ -57,7 +57,7 @@
 
       <div class="row justify-content-center text-center copyright">
         <div class="col-md-8">
-          <p>Copyright &copy;. All Rights Reserved. &mdash; Designed with love by <a>Dimitris</a> 
+          <p>Copyright &copy;. All Rights Reserved. &mdash; Designed with love by <a href="https://dimis1988.github.io/">Dimitris</a> 
           </p>
         </div>
       </div>

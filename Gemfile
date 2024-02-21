@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise", "~> 4.9"
 gem 'will_paginate', '~> 4.0'
+gem 'aws-sdk', '~> 3', require: false

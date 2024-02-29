@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do 
     root 'pages#index'
     resources :users
+    get 'posts/search', to: 'posts#search'
     resources :posts, param: :slug do
       resources :comments
     end
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   root 'pages#index'
+  get 'posts/search', to: 'posts#search'
   resources :posts, param: :slug do
     resources :comments
   end

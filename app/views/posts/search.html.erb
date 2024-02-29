@@ -1,0 +1,38 @@
+
+  
+  <div class="custom-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <h1 class="hero-heading">Posts</h1>
+          <div  class="line js-line mx-auto mb-3 my-3"></div>
+          <p class="sub-text">Search results based on what you typed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section">
+    <div class="container">
+      <div class="row mb-5">
+
+        <%= render partial: 'posts/posts' %>
+        
+          </div>
+
+  <div class="custom-hero section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <h4>You didn't find what you are looking for?</h4>
+          <p><a><%= link_to 'Go back to Home Page', root_path, class:"btn btn-primary" %></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+    </div>
+  </div>
+
+  

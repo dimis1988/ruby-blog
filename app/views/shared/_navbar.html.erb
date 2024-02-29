@@ -24,9 +24,14 @@
   <nav class="site-nav">
     <div class="container">
       <div class="site-navigation">
-        <a><%= link_to 'Ruby.', root_path, class:"logo float-left m-0" %>
+
+    <%= link_to 'Ruby.', root_path, class:"logo float-left m-0" %>
+
+
 
         <ul class="js-clone-nav d-none d-lg-inline-noone text-left site-menu">
+
+
           <li><a><%= link_to 'Home', root_path %></a></li>
           <li class="has-children">
             <a href="#">Pages</a>
@@ -61,11 +66,21 @@
           <% end %>
         </ul>
 
+        
         <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-block" data-toggle="collapse" data-target="#main-navbar">
           <span></span>
         </a>
 
       </div>
+
+          <div class="row">
+            <div class="form-group col-md-3">
+              <%= form_tag posts_search_path, method: :get do %>
+                <%= text_field_tag :query, params[:query], class:"form-control", placeholder: 'Search Post By Title' %>
+              <% end %>
+            </div>
+          </div>
+          
     </div>
   </nav>
 

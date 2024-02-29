@@ -9,6 +9,10 @@ class PostsController < ApplicationController
     @post = Post.find_by(slug: params[:slug])
   end
   
+  def search
+    query = params[:query]
+    @posts = Post.where('title ILIKE ?', "%#{query}%")
+  end
 
   def new
     @post = current_user.posts.build

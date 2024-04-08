@@ -4,7 +4,7 @@
         <div class="col-lg-6">
           <h1 class="hero-heading">Edit <%= resource_name.to_s.humanize %></h1>
           <div  class="line js-line mx-auto mb-3 my-3"></div>
-          <p class="sub-text">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          <p class="sub-text">Feel free to personalize your profile to make it truly yours. Thank you for being a part of our community!</p>
         </div>
       </div>
     </div>
@@ -76,18 +76,18 @@
 
               </div>
 
-               <%= f.submit "Sign up", class:"btn btn-primary" %>
+               <%= f.submit "Edit Profile", class:"btn btn-primary" %>
             <% end %>
 
           </div>
 
         </div>
       </div>
-    </div>
-  </div>
-
-<h3>Cancel my account</h3>
+      <h3>Cancel my account</h3>
 
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+    </div>
+  </div>
+

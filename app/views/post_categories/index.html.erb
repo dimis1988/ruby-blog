@@ -20,7 +20,7 @@
 
           <% @post_categories.each do |post_category|%>
             <div class="isotope-card col-sm-4 all mockup">
-              <%= link_to post_category do %>
+              <%= link_to post_categories_related_posts_path(post_category) do %>
                 <% if post_category.image.attached? %>
                     <%= image_tag(post_category.image, alt:"Image", class:"img-fluid") %>
                   <% end %>

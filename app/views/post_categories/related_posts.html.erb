@@ -16,12 +16,13 @@
     <div class="container">
       <div class="row mb-5">
 
-        <% @posts.each do |post| %> 
+
+      <% @posts.each do |post| %> 
         <div class="col-md-6 mb-5 mb-lg-5 col-lg-4">
           <div class="blog_entry">
             <a href="single.html">
             <% if post.image.attached? %>
-            <%= image_tag(post.image, alt:"Free Website Template by Untree.co",class:"img-fluid") %>
+            <%= link_to image_tag(post.image, alt:"Free Website Template by Untree.co",class:"img-fluid"), post %>
             <% end %>
             </a>
             <div class="p-4 bg-white">
@@ -33,18 +34,17 @@
           </div>
         </div>
        <% end %>
-
+      
       </div>
 
       <div class="row">
         <div class="col-lg-12 text-center">
-          <ul class="list-unstyled custom-pagination">
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-          </ul>
+          <div class="apple_pagination">
+            <div class="page_info">
+             <%= page_entries_info @posts %>
+            </div>
+            <%= will_paginate @posts, :container => false %>
+          </div>
         </div>
       </div>
     </div>

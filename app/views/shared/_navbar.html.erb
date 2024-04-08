@@ -33,31 +33,10 @@
 
 
           <li><a><%= link_to 'Home', root_path %></a></li>
-          <li class="has-children">
-            <a href="#">Pages</a>
-            <ul class="dropdown">
-              <li><a>Portfolio</a></li>
-              <li class="active"><a href="blog.html">Blog</a></li>
-              <li><a href="single.html">Single</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-
-              <li class="has-children">
-                <a href="#">Menu Two</a>
-                <ul class="dropdown">
-                  <li><a href="#">Sub Menu One</a></li>
-                  <li><a href="#">Sub Menu Two</a></li>
-                  <li><a href="#">Sub Menu Three</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Menu Three</a></li>
-            </ul>
-          </li>
           <li><%= link_to 'Blog', posts_path %></li>
           <li><%= link_to 'Categories', post_categories_path %></li>
           <% if user_signed_in? %>
              <li><%= link_to 'Profile', user_path(current_user) %></li>
-             <li><%= link_to 'Update Profile', edit_user_path(current_user) %></li>
              <li><%= link_to 'Log Out', destroy_user_session_path,
             method: :delete, data: {confirm: 'Are you sure?'} %></li>
           <% else %>

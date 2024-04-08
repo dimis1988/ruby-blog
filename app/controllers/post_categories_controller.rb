@@ -10,7 +10,7 @@ class PostCategoriesController < ApplicationController
 
   def related_posts 
     @post_category = PostCategory.find_by(slug: params[:slug])
-    @posts = @post_category.posts
+    @posts = @post_category.posts.paginate(page: params[:page], per_page: 6)
   end
 
   def new

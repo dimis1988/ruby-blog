@@ -28,9 +28,16 @@
 
 
           <div class="pt-5 categories_tags ">
-            <p>Categories:  <a><%= @post.post_category.name %></a>,   Tags: <a href="#">#html</a>, <a href="#">#trends</a></p> More from this aurthor: <a><%= link_to @post.user.full_name, user_path(@post.user) %></a></p>
+            <p>Categories:  
+                <a><%= @post.post_category.name %></a>,   
+          Tags: <a href="#">#html</a>, 
+                 <a href="#">#trends</a></p>
+             <!--- More from this aurthor: 
+             <a><%= link_to @post.user.full_name, user_path(@post.user) %></a> --->
+             </p>
           </div>
 
+          <!----
           <div class="post-single-navigation d-flex align-items-stretch">
             <a href="#" class="mr-auto w-50 pr-4">
               <span class="d-block">Previous Post</span>
@@ -41,7 +48,7 @@
               12 Creative Designers Share Ideas About Web Design
             </a>
           </div>
-          
+          --->
 
 
           <div class="pt-5">
@@ -127,37 +134,8 @@
 
         </article>
 
-        <div class="col-md-12 col-lg-1 order-lg-1">
-          <div class="share sticky-top">
-            <h3>Share</h3>
-            <ul class="list-unstyled share-article">
-              <li><a href="#"><span class="icon-facebook"></span></a></li>
-              <li><a href="#"><span class="icon-twitter"></span></a></li>
-              <li><a href="#"><span class="icon-pinterest"></span></a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-3 mb-5 mb-lg-0 order-lg-3">
+ 
 
-          <div class="mb-4">
-            <a>
-              <span class="play-wrap"><span class="icon-play"></span></span>
-              <% if @post.image.attached? %>
-                 <%= image_tag(@post.image, alt:"Image", class:"img-fluid rounded") %>
-              <% end %>
-            </a>
-          </div>  
-
-          <div class="share floating-block sticky-top">
-
-            <h2 class="mb-3 text-black">Subscribe to Newsletter</h2>
-            <p>Far far away behind the word mountains far from.</p>
-            <form action="#">
-              <input type="email" class="form-control mb-2" placeholder="Enter email">
-              <input type="submit" value="Subscribe" class="btn btn-primary btn-block">
-            </form>
-          </div>
-        </div>
       </div>
     </div>
   </div>

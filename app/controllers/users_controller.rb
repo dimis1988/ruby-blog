@@ -9,13 +9,13 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def update 
-    if current_user.update(user_params)
-      redirect_to current_user, notice: 'Profile successfully updated...'
-    else
-      render :edit
-    end
-  end
+  # def update 
+  #   if current_user.update(user_params)
+  #     redirect_to current_user, notice: 'Profile successfully updated...'
+  #   else
+  #     render :edit
+  #   end
+  # end
 
   private 
 
